@@ -16,8 +16,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "spwnin.helloWorld",
-				"title": "Hello World"
+				"command": "spwnin.bobcode",
+				"title": "Sample BOB Code"
 			}
 		]
 	},
