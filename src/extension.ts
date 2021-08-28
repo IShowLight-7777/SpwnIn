@@ -11,8 +11,8 @@ export function activate(context: vscode.ExtensionContext) {
 		bob.move(10, -10, 2)
 		`;
 
-		// returns an error if you dont have a workspace open which is bad
-		let folderPath = vscode.workspace.workspaceFolders[0].uri // ingore this error as its only client side and oly occours if theres no workspace open!
+		// returns an error if you don't have a workspace open which is bad
+		let folderPath = vscode.workspace.workspaceFolders[0].uri // ignore this error as its only client side and oly occurs if theres no workspace open!
 		.toString()
 		.split(":")[0];
 
