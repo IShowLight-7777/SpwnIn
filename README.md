@@ -3,5 +3,16 @@
 ah yes LSP for spwn made with typescript hmm yas
 
 
+
+
+
+
+### thanks to...
+[Deltara](https://github.com/Deltara3) (discord: Deltara#6969 yea here numbertag will be change in 3 days because nitro so i'll update ir)<br>
+[Me](https://github.com/Avaneesh-coder) (discord: AvaneeshNotFound#6652)
+
+
+## repos
+[spwn](https://github.com/Spu7Nix/SPWN-language/)
 ### LICENCE 
 [read it if you like](LICENSE)
