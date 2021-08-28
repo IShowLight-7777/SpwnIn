@@ -16,33 +16,25 @@ bob.move(10, -10, 2)`;
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 
 		if (fs.existsSync(folderPath)) {
-			let filepath = `${folderPath}/bob.spwn`;
+			let filepath = path.join(folderPath, 'bob.spwn');
 
 			try {
-				if (fs.existsSync(filepath)) {
-						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
-							if(err){
-								console.error(err);
-								return vscode.window.showErrorMessage("Failed to edit \"bob.spwn\" file.");
-							}
-							return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
-							
-						});
-				} else {
-						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
-							if(err){
-								console.error(err);
-								return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
-							}
-							return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
-						});
-				}
+				let exists = fs.existsSync(filepath);
+				fs.writeFile(filepath, bobcode, err => {
+					if(err){
+						console.error(err);
+						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "bob.spwn" file.`);
+					}
+					return vscode.window.showWarningMessage(
+						exists ? 'FILE ALREADY EXISTS | edited "bob.spwn" file.' : 'created "bob.spwn" file.'
+					);
+				});
 			} catch(err) {
 				console.error(err);
 			}
 					
 		} else {
-			return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file. are you in a workspace?");
+			return vscode.window.showErrorMessage('Failed to create "bob.spwn" file. are you in a workspace?');
 		}
 	});
 
