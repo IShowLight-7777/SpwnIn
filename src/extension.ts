@@ -1,15 +1,29 @@
 // heres ur useless comment you wanted
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+//MODULES 
+import path = require('path');
+import * as vscode from 'vscode';
+import fs = require('fs');
+// functions and blah blah blah
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('spwnin.bobcode', () => {
-		const bobcode = '
-		bob = 1g 
-		bob.move(10, -10, 2) ';
+		let bobcode = `bob = 5g
+		bob.move(10, -10, 2)
+		`;
+
+		// returns an error if you dont have a workspace open which is bad
+		let folderPath = vscode.workspace.workspaceFolders[0].uri // ingore this error as its only client side and oly occours if theres no workspace open!
+		.toString()
+		.split(":")[0];
+
+		fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
+			if(err){
+				console.error(err);
+				return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
+			}
+			return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
+
+		});
 	});
 
 	context.subscriptions.push(disposable);

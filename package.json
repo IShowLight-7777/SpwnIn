@@ -2,7 +2,7 @@
   "name": "spwnin",
 	"displayName": "spwnIn",
 	"description": "LSP for spawn i guess :':",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.59.0"
 	},
