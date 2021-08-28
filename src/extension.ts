@@ -12,24 +12,38 @@ bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
 
-		// returns an error if you don't have a workspace open which is bad
-		let folderPath = vscode.workspace.workspaceFolders[0].uri // ignore this error as its only client side and oly occurs if theres no workspace open!
-		.toString()
-		.split(":")[0];
+		// no longer fills my console with errors yay
+		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 
-		let existingfile = `${folderPath}/bob.spwn`;
+		if (fs.existsSync(folderPath)) {
+			let filepath = `${folderPath}/bob.spwn`;
 
-		fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
-			if(err){
+			try {
+				if (fs.existsSync(filepath)) {
+						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
+							if(err){
+								console.error(err);
+								return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
+							}
+							return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
+							
+						});
+				} else {
+						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
+							if(err){
+								console.error(err);
+								return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
+							}
+							return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
+						});
+				}
+			} catch(err) {
 				console.error(err);
-				return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
 			}
-			if(!fs.existsSync(existingfile)){
-			return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
-			} else {
-				return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
-			}
-		});
+					
+		} else {
+			return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file. are you in a workspace?");
+		}
 	});
 
 	context.subscriptions.push(disposable);
