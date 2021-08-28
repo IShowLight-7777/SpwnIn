@@ -1,5 +1,5 @@
 # SpwnIn
-<a href="https://github.com/Avaneesh-coder/spwnIn/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Avaneesh-coder/spwnIn"></a><br>
+<a href="https://github.com/Avaneesh-coder/SpwnIn/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/Avaneesh-coder/SpwnIn"></a><br>
 ah yes LSP for spwn made with typescript hmm yas
 
 
@@ -14,4 +14,4 @@ ah yes LSP for spwn made with typescript hmm yas
 
 
 ### LICENCE 
-[Copyright (c) 2021 Avaneesh Naik](LICENSE)
+[f##k it read it if you like](LICENSE)
