@@ -11,6 +11,7 @@ ah yes LSP for spwn made with typescript hmm yas
 [Deltara](https://github.com/Deltara3) made some funny stuff<br>
 [Me](https://github.com/Avaneesh-coder) the lad who made LSP for spwn<br>
 [MiloLug](https://github.com/MiloLug) refactoring<br>
+[And you!](https://github.com/You)
 
 
 
