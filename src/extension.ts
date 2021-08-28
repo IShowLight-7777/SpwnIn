@@ -7,22 +7,28 @@ import fs = require('fs');
 // functions and blah blah blah
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('spwnin.bobcode', () => {
-		let bobcode = `bob = 5g
-		bob.move(10, -10, 2)
-		`;
+		let bobcode = `//the group you want to move
+bob = 5g //your group
+//where to move and what easing type
+bob.move(10, -10, 2)`;
 
 		// returns an error if you don't have a workspace open which is bad
 		let folderPath = vscode.workspace.workspaceFolders[0].uri // ignore this error as its only client side and oly occurs if theres no workspace open!
 		.toString()
 		.split(":")[0];
 
+		let existingfile = `${folderPath}/bob.spwn`;
+
 		fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
 			if(err){
 				console.error(err);
 				return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
 			}
-			return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
-
+			if(!fs.existsSync(existingfile)){
+			return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
+			} else {
+				return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
+			}
 		});
 	});
 
