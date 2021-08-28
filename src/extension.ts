@@ -1,9 +1,9 @@
 // heres ur useless comment you wanted
 
 //MODULES 
-import path = require('path');
+import * as path from 'path';
 import * as vscode from 'vscode';
-import fs = require('fs');
+import * as fs from 'fs';
 // functions and blah blah blah
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('spwnin.bobcode', () => {
