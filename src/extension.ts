@@ -7,27 +7,42 @@ import * as fs from 'fs';
 // functions and blah blah blah
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('spwnin.bobcode', () => {
-		let bobcode = `
-			//the group you want to move
-			bob = 5g //your group
-			//where to move and what easing type
-			bob.move(10, -10, 2)
-		`;
+		let bobcode = `//the group you want to move
+bob = 5g //your group
+//where to move and what easing type
+bob.move(10, -10, 2)`;
 
 		// no longer fills my console with errors yay
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 
 		if (fs.existsSync(folderPath)) {
-			let filepath = path.join(folderPath, 'bob.spwn');
+			let filepath = `${folderPath}/bob.spwn`;
+
 			try {
-				fs.writeFileSync(filepath, bobcode)
-				return vscode.window.showWarningMessage('Created/edited "bob.spwn" file.');
+				if (fs.existsSync(filepath)) {
+						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
+							if(err){
+								console.error(err);
+								return vscode.window.showErrorMessage("Failed to edit \"bob.spwn\" file.");
+							}
+							return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
+							
+						});
+				} else {
+						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
+							if(err){
+								console.error(err);
+								return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
+							}
+							return vscode.window.showInformationMessage("created \"bob.spwn\" file.");
+						});
+				}
 			} catch(err) {
 				console.error(err);
-				return vscode.window.showErrorMessage('Failed to create/edit "bob.spwn" file.');
-			}		
+			}
+					
 		} else {
-			return vscode.window.showErrorMessage('Failed to create "bob.spwn" file. Are you in a workspace?');
+			return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file. are you in a workspace?");
 		}
 	});
 
