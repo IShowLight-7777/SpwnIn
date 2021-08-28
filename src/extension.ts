@@ -23,7 +23,7 @@ bob.move(10, -10, 2)`;
 						fs.writeFile(path.join(folderPath, 'bob.spwn'), bobcode, err => {
 							if(err){
 								console.error(err);
-								return vscode.window.showErrorMessage("Failed to create \"bob.spwn\" file.");
+								return vscode.window.showErrorMessage("Failed to edit \"bob.spwn\" file.");
 							}
 							return vscode.window.showWarningMessage("FILE ALREADY EXISTS | edited \"bob.spwn\" file.");
 							
