@@ -1,19 +1,38 @@
 {
+     "todo": "comments opreators and debugging left and right",
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Spwn gd programming language",
     "patterns": [
         {
-            "include": "#keywords"
+            "include": "#comments"
+        },
+        {
+            "include": "#operators"
         },
         {
             "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        }, 
+        {
+            "include": "#reversed-words"
+        },
+        {
+            "include": "#ctrl-statements"
         }
     ],
-    "repository":{
-        "keywords": {
+    "repository": {
+        "numbers": {
             "patterns": [{
-                "name": "keyword.control.tpl",
-                "match": "\\b(if|while|for|return)\\b"
+                "name": "keyword.other.unit.suffix.integer.spwn",
+                "match": "(^-?[0-9] [0-9]\\.]+$)"
+            }]
+        },
+        "ctrl-statements": {
+            "patterns": [{
+                "name": "keyword.control.spwn",
+                "match": "\\b(if|while|switch|case|break|for|return)\\b"
             }]
         },
         "strings": {
