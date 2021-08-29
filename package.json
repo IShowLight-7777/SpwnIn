@@ -19,6 +19,22 @@
 				"command": "spwnin.bobcode",
 				"title": "Sample BOB Code"
 			}
+		],
+
+		"languages": [{
+			"id": "spwn",
+			"aliases": ["Spwn gd language", "spwn"],
+			"extensions": [
+				".spwn"
+			],
+			"configuration": "./language-configuration.json"
+		}],
+		"grammars": [
+			{
+				"language": "Spwn",
+				"scopeName": "source.spwn",
+				"path": "./syntaxes/spwn.tmLanguage.json"
+			}
 		]
 	},
 	"scripts": {

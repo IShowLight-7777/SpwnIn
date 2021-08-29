@@ -8,12 +8,9 @@ ah yes LSP for spwn made with typescript hmm yas
 
 
 ### thanks to...
-[Deltara](https://github.com/Deltara3) made some funny stuff<br>
-[Avaneesh-coder](https://github.com/Avaneesh-coder) the lad who made LSP for spwn<br>
-[MiloLug](https://github.com/MiloLug) refactoring<br>
-[And you!](https://github.com/You)
-
-
+[Deltara](https://github.com/Deltara3) made some funny stuff  
+[Avaneesh-coder](https://github.com/Avaneesh-coder) the mad lad who made a second LSP for spwn  
+[MiloLug](https://github.com/MiloLug) refactoring  
 
 ## repos
 [spwn](https://github.com/Spu7Nix/SPWN-language/)
