@@ -16,3 +16,5 @@ ah yes LSP for spwn made with typescript hmm yas
 [spwn](https://github.com/Spu7Nix/SPWN-language/)
 ### LICENCE 
 [read it if you like](LICENSE)
+### About copying
+you are not allowed to copy without my permission so the licence will be changing but that wont change that you have to get premission from me
