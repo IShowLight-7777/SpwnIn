@@ -1,5 +1,5 @@
 {
-     "todo": "comments opreators and debugging left and right",
+     "todo": "comments operators and debugging left and right",
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Spwn gd programming language",
     "patterns": [
@@ -34,6 +34,10 @@
                 "name": "keyword.control.spwn",
                 "match": "\\b(if|while|switch|case|break|for|return)\\b"
             }]
+        },
+        "reversed-words": {
+            "match": "\\b(CONTRIBUTE AND HALP PLS\\b",
+            "name": "entity.name.function.member.spwn"
         },
         "strings": {
             "name": "string.quoted.double.spwn",
