@@ -12,6 +12,9 @@ bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
 
+
+		console.log("Yes");
+
 		// no longer fills my console with errors yay
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 
