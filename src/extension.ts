@@ -36,7 +36,7 @@ bob.move(10, -10, 2)`;
 			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace?`);
 		}
 	});
-	let sampleontouch = vscode.commands.registerCommand('spwin.sampleontouch', () => {
+	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
 		let ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
 
 		on(touch(), !{

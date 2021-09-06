@@ -20,7 +20,7 @@
 				"title": "Sample BOB Code"
 			},
 			{
-				"command": "spwnin.sampleontouch",
+				"command": "spwnin.ontouch",
 				"title": "Sample on touch function"
 			}
 		],
