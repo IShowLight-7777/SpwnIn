@@ -18,6 +18,10 @@
 			{
 				"command": "spwnin.bobcode",
 				"title": "Sample BOB Code"
+			},
+			{
+				"command": "spwnin.sampleontouch",
+				"title": "Sample on touch function"
 			}
 		],
 

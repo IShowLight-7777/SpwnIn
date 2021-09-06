@@ -12,19 +12,20 @@ bob = 5g //your group
 bob.move(10, -10, 2)`;
 
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
+		const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
 
 		if (fs.existsSync(folderPath)) {
-			let filepath = path.join(folderPath, 'bob.spwn');
+			let filepath = path.join(folderPath, file);
 
 			try {
 				let exists = fs.existsSync(filepath);
 				fs.writeFile(filepath, bobcode, err => {
 					if(err){
 						console.error(err);
-						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "bob.spwn" file.`);
+						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
 					}
 					return vscode.window.showWarningMessage(
-						exists ? 'FILE ALREADY EXISTS | edited "bob.spwn" file.' : 'created "bob.spwn" file.'
+						exists ? `FILE ALREADY EXISTS | edited "${file}" file.` : `created "${file}" file.`
 					);
 				});
 			} catch(err) {
@@ -32,9 +33,42 @@ bob.move(10, -10, 2)`;
 			}
 					
 		} else {
-			return vscode.window.showErrorMessage('Failed to create "bob.spwn" file. are you in a workspace?');
+			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace?`);
 		}
 	});
+	let sampleontouch = vscode.commands.registerCommand('spwin.sampleontouch', () => {
+		let ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
+
+		on(touch(), !{
+			GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1 block on the x axis
+			//more code when player clicked/jumped
+		})`;
+		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
+		const file = 'testontouch.spwn';
+
+		if (fs.existsSync(folderPath)) {
+			let filepath = path.join(folderPath, file);
+
+			try {
+				let exists = fs.existsSync(filepath);
+				fs.writeFile(filepath, ontouch, err => {
+					if(err){
+						console.error(err);
+						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
+					}
+					return vscode.window.showWarningMessage(
+						exists ? `FILE ALREADY EXISTS | edited "${file}" file.` : `created "${file}" file.`
+					);
+				});
+			} catch(err) {
+				console.error(err);
+			}
+					
+		} else {
+			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace?`);
+		}
+	});
+	//push context
 	context.subscriptions.push(samplebobcode);
 }
 
