@@ -1,21 +1,16 @@
-// heres ur useless comment you wanted
 
-//MODULES 
 import * as path from 'path';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-// functions and blah blah blah
+
+
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('spwnin.bobcode', () => {
+	let samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
 		let bobcode = `//the group you want to move
 bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
 
-
-		console.log("Yes");
-
-		// no longer fills my console with errors yay
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 
 		if (fs.existsSync(folderPath)) {
@@ -40,8 +35,9 @@ bob.move(10, -10, 2)`;
 			return vscode.window.showErrorMessage('Failed to create "bob.spwn" file. are you in a workspace?');
 		}
 	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(samplebobcode);
 }
 
-export function deactivate() {}
+export function deactivate() {
+	return vscode.window.showInformationMessage("Oh hi there. did we do something wrong?");
+}
