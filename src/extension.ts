@@ -39,10 +39,10 @@ bob.move(10, -10, 2)`;
 	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
 		let ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
 
-		on(touch(), !{
-			GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1 block on the x axis
-			//more code when player clicked/jumped
-		})`;
+on(touch(), !{
+GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1 block on the x axis
+//more code when player clicked/jumped
+})`;
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 		const file = 'testontouch.spwn';
 
@@ -69,6 +69,7 @@ bob.move(10, -10, 2)`;
 		}
 	});
 	//push context
+	// so apprenlty you dont need this for making new commands
 	context.subscriptions.push(samplebobcode);
 }
 
