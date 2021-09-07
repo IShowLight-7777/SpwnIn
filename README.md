@@ -14,6 +14,7 @@ ah yes LSP for spwn made with typescript hmm yas
 
 ## repos
 [spwn](https://github.com/Spu7Nix/SPWN-language/)
+[check out the offical lsp! ;D](https://github.com/Suyashtnt/spwn-lsp)
 ### LICENCE 
 [read it if you like](LICENSE)
 ### About copying
