@@ -1,0 +1,15 @@
+{
+    "function On-touch": {
+		"prefix": "on",
+		"body": [
+			"Group_ID = 1$1",
+            "X = 10$3",
+            "Y = 10$2",
+            "timeToMove = 0.5",
+            "",
+            "on(touch(), !{",
+            "GROUP_ID.move(X, Y, timeToMove)"
+		],
+		"description": "Make a simple on touch function"
+	}
+}

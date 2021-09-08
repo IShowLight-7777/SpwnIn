@@ -21,7 +21,7 @@
 			},
 			{
 				"command": "spwnin.ontouch",
-				"title": "Sample on touch function"
+				"title": "Sample on touch function(OLD/outdated)"
 			}
 		],
 
@@ -39,7 +39,13 @@
 				"scopeName": "source.spwn",
 				"path": "./syntaxes/spwn.tmLanguage.json"
 			}
-		]
+		],
+		"snippets": [
+            {
+                "language": "spwn",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

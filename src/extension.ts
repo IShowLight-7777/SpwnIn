@@ -65,12 +65,13 @@ GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1
 			}
 					
 		} else {
-			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace?`);
+			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace or a folder?`);
 		}
 	});
 	//push context
 	// so apprenlty you dont need this for making new commands
 	context.subscriptions.push(samplebobcode);
+	context.subscriptions.push(sampleontouch); // outdated version
 }
 
 export function deactivate() {
