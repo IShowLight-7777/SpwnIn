@@ -1,7 +1,8 @@
 {
   	"name": "spwnin",
 	"displayName": "spwnIn",
-	"description": "LSP for spawn i guess :':",
+	"publisher": "Avaneesh",
+	"description": "LSP for spwn gd",
 	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.59.0"

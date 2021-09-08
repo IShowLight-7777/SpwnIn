@@ -43,6 +43,7 @@ on(touch(), !{
 GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1 block on the x axis
 //more code when player clicked/jumped
 })`;
+
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 		const file = 'testontouch.spwn';
 
