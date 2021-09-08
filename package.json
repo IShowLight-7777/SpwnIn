@@ -1,9 +1,12 @@
 {
   	"name": "spwnin",
 	"displayName": "spwnIn",
-	"publisher": "Avaneesh",
 	"description": "LSP for spwn gd",
 	"version": "1.0.0",
+	"publisher": "Avaneesh",
+	"repository": {
+		"url": "https://github.com/Avaneesh-coder/SpwnIn"
+	},
 	"engines": {
 		"vscode": "^1.59.0"
 	},
