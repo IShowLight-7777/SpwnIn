@@ -1,6 +1,6 @@
 {
     "function On-touch": {
-		"prefix": "on",
+		"prefix": "on(touch...)",
 		"body": [
 			"Group_ID = 1$1",
             "X = 10$3",
