@@ -63,7 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 				command: "spwn-lsp", // for now manually run in the root cargo install --path .
 				options: {
 					env: process.env
-				}
+				} // k goodnight
 			};
 
 			const serverOptions: ServerOptions = {
