@@ -11,7 +11,16 @@ export function activate(context: vscode.ExtensionContext) {
 bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
+		const options: vscode.OpenDialogOptions = {
+			canSelectMany: false,
+			openLabel: 'Open',
+			filters: {
+			   'Spwn files': ['spwn'],
+			   'All files': ['*']
+		   }
+		};
 
+		
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
 		const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
 
@@ -20,15 +29,21 @@ bob.move(10, -10, 2)`;
 
 			try {
 				let exists = fs.existsSync(filepath);
-				fs.writeFile(filepath, bobcode, err => {
-					if(err){
-						console.error(err);
-						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
+				vscode.window.showOpenDialog(options).then(fileUri => {
+					if (fileUri && fileUri[0]) {
+						console.log('Selected file: ' + fileUri[0].fsPath);
+							fs.writeFile(filepath, bobcode, err => {
+								if(err){
+									console.error(err);
+									return vscode.window.showErrorMessage(`Failed to edit "${fileUri[0].fsPath}"`);
+								}
+								return vscode.window.showWarningMessage(
+									`edited "${fileUri[0].fsPath}"`
+								);
+							});
 					}
-					return vscode.window.showWarningMessage(
-						exists ? `FILE ALREADY EXISTS | edited "${file}" file.` : `created "${file}" file.`
-					);
-				});
+				 });
+				
 			} catch(err) {
 				console.error(err);
 			}
