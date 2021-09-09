@@ -25,31 +25,35 @@ bob.move(10, -10, 2)`;
 		const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
 
 		if (fs.existsSync(folderPath)) {
-			let filepath = path.join(folderPath, file);
+			vscode.window.showOpenDialog(options).then(fileUri => {
+				if (fileUri && fileUri[0]) {
+					let filepath = fileUri[0].fsPath;
 
-			try {
-				let exists = fs.existsSync(filepath);
-				vscode.window.showOpenDialog(options).then(fileUri => {
-					if (fileUri && fileUri[0]) {
-						console.log('Selected file: ' + fileUri[0].fsPath);
-							fs.writeFile(filepath, bobcode, err => {
-								if(err){
-									console.error(err);
-									return vscode.window.showErrorMessage(`Failed to edit "${fileUri[0].fsPath}"`);
-								}
-								return vscode.window.showWarningMessage(
-									`edited "${fileUri[0].fsPath}"`
-								);
-							});
+					try {
+						let exists = fs.existsSync(filepath);
+						
+								console.log('Selected file: ' + fileUri[0].fsPath);
+									fs.writeFile(filepath, bobcode, err => {
+										if(err){
+											console.error(err);
+											vscode.window.showErrorMessage(`Failed to edit "${fileUri[0].fsPath}"`);
+											return vscode.window.showErrorMessage(`${err}`);
+										}
+										return vscode.window.showWarningMessage(
+											`edited "${fileUri[0].fsPath}"`
+										);
+									});
+							
+						
+						
+					} catch(err) {
+						console.error(err);
 					}
-				 });
-				
-			} catch(err) {
-				console.error(err);
-			}
-					
+				}
+			});
+		
 		} else {
-			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace?`);
+			return vscode.window.showErrorMessage(`Failed to edit "${file}" file. are you in a workspace?`);
 		}
 	});
 	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
