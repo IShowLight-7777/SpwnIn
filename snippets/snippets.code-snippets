@@ -1,15 +1,25 @@
 {
     "function On-touch": {
-		"prefix": "on(touch...)",
-		"body": [
-			"Group_ID = 1$1",
-      "X = 10$3",
-      "Y = 10$2",
-      "timeToMove = 0.5",
-      "",
-      "on(touch(), !{",
-      "GROUP_ID.move(X, Y, timeToMove)"
-		],
-		"description": "Make a simple on touch function"
-	}
+      "prefix": "on(touch...)",
+      "body": [
+        "Group_ID = 1$1",
+        "X = 10$3",
+        "Y = 10$2",
+        "timeToMove = 0.5",
+        "",
+        "on(touch(), !{",
+        "GROUP_ID.move(X, Y, timeToMove)",
+        "}"
+      ],
+      "description": "Make a simple on touch function"
+	  },
+    "for group..group...": {
+      "prefix": "for group in...",
+      "body": [
+        "for group in 1g..10g {",
+        "    group.move(10, 0, 0.5)",
+        "}"
+      ],
+      "description": "for group function"
+    }
 }
