@@ -15,7 +15,7 @@ bob.move(10, -10, 2)`;
 			canSelectMany: false,
 			openLabel: 'Open',
 			filters: {
-			   'Spwn files': ['spwn'],
+			   'Spwn files': ['spwn'], // typescript stfu i dont want problems 	
 			   'All files': ['*']
 		   }
 		};
