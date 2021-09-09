@@ -30,8 +30,6 @@ bob.move(10, -10, 2)`;
 					let filepath = fileUri[0].fsPath;
 
 					try {
-						let exists = fs.existsSync(filepath);
-						
 								console.log('Selected file: ' + fileUri[0].fsPath);
 									fs.writeFile(filepath, bobcode, err => {
 										if(err){
