@@ -26,7 +26,11 @@
   	  	  	{
   	  	  	  	"command": "spwnin.ontouch",
   	  	  	  	"title": "Sample on touch function(OLD/outdated)"
-  	  	  	}
+  	  	  	},
+			{
+				"command": "spwnin.doughnut",
+				"title": "Spinny doughnut"
+			}
   	  	],
   	  	"languages": [
   	  	  	{
@@ -43,7 +47,7 @@
   	  	],
   	  	"grammars": [
   	  	  	{
-  	  	  	  	"language": "Spwn",
+  	  	  	  	"language": "spwn",
   	  	  	  	"scopeName": "source.spwn",
   	  	  	  	"path": "./syntaxes/spwn.tmLanguage.json"
   	  	  	}
