@@ -1,0 +1,18 @@
+{
+    "iconDefinitions": {
+        "_spwn": {"iconPath": "./icons/spwn.png"}
+    },
+    "file": "_generic",
+    "folder": "_folder_closed",
+    "folderExpanded": "_folder_open",
+    "languageIds": {
+    },
+    "fileExtensions": {
+        "spwn": "_spwn"
+    },
+    "filenames": {
+        "opensees.exe": "_opensees",
+        "openseesSP.exe": "_opensees",
+        "openseesMP.exe": "_opensees"
+    }
+}

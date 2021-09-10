@@ -10,6 +10,7 @@
   	"engines": {
   	  	"vscode": "^1.59.0"
   	},
+	  "icon": "./images/spwn_logo.png",
   	"categories": [
   	  	"Other"
   	],
@@ -60,9 +61,9 @@
   	  	],
 		"iconThemes": [
 			{
-				"id": "spwn",
-				"label": "Spwn",
-				"path": "./fileicons/spwn-icon-theme.json"
+				"id": "spwn-icon",
+				"label": "icon for spwn",
+				"path": "spwn-icon.json"
 			}
 		]
   	},
