@@ -57,7 +57,14 @@
   	  	  	  	"language": "spwn",
   	  	  	  	"path": "./snippets/snippets.code-snippets"
   	  	  	}
-  	  	]
+  	  	],
+		"iconThemes": [
+			{
+				"id": "spwn",
+				"label": "Spwn",
+				"path": "./fileicons/spwn-icon-theme.json"
+			}
+		]
   	},
   	"scripts": {
   	  	"vscode:prepublish": "npm run compile",
