@@ -10,7 +10,7 @@
   	"engines": {
   	  	"vscode": "^1.59.0"
   	},
-	  "icon": "/images/spwn_logo.png",
+	  "icon": "images/spwn_logo.png",
   	"categories": [
   	  	"Other"
   	],
