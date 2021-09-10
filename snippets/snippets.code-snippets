@@ -2,7 +2,7 @@
     "function On-touch": {
       "prefix": "on(touch...)",
       "body": [
-        "Group_ID = 1$1",
+        "Group_ID = 1g$1",
         "X = 10$3",
         "Y = 10$2",
         "timeToMove = 0.5",
@@ -19,6 +19,15 @@
         "for group in 1g..10g {",
         "    group.move(10, 0, 0.5)",
         "}"
+      ],
+      "description": "for group function"
+    },
+    "alpha_trigger example": {
+      "prefix": ".add alpha",
+      "body": [
+        "Group = 1g",
+        "Group.add( alpha_trigger(1g,0.5,duration = 2).with(X,600) )",
+        ""
       ],
       "description": "for group function"
     }
