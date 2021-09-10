@@ -2,13 +2,13 @@
     "function On-touch": {
       "prefix": "on(touch...)",
       "body": [
-        "Group_ID = 1g$1",
-        "X = 10$3",
-        "Y = 10$2",
+        "group_ID = 1g$1",
+        "x = 10$3",
+        "y = 10$2",
         "timeToMove = 0.5",
         "",
         "on(touch(), !{",
-        "Group_ID.move(X, Y, timeToMove)",
+        "group_ID.move(x, y, timeToMove)",
         "})"
       ],
       "description": "Make a simple on touch function"
@@ -25,9 +25,9 @@
     "alpha_trigger example": {
       "prefix": ".add alpha",
       "body": [
-        "Group = 1g",
+        "group = 1g",
         "d = 2",
-        "Opacity = 0.5",
+        "opacity = 0.5",
         "$.add( alpha_trigger(Group,Opacity,duration = d).with(X,600) )",
         ""
       ],

@@ -22,14 +22,17 @@
   	  	"commands": [
   	  	  	{
   	  	  	  	"command": "spwnin.bobcode",
+				"category": "Spwn",
   	  	  	  	"title": "Sample BOB Code"
   	  	  	},
   	  	  	{
   	  	  	  	"command": "spwnin.ontouch",
+				"category": "Spwn",
   	  	  	  	"title": "Sample on touch function(OLD/outdated)"
   	  	  	},
 			{
 				"command": "spwnin.doughnut",
+				"category": "Spwn",
 				"title": "donut code"
 			}
   	  	],
