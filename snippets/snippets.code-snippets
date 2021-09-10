@@ -9,7 +9,7 @@
         "",
         "on(touch(), !{",
         "Group_ID.move(X, Y, timeToMove)",
-        "}"
+        "})"
       ],
       "description": "Make a simple on touch function"
 	  },
