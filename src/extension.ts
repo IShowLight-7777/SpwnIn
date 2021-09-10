@@ -15,7 +15,9 @@ bob.move(10, -10, 2)`;
 			canSelectMany: false,
 			openLabel: 'Open',
 			filters: {
+			   // eslint-disable-next-line @typescript-eslint/naming-convention
 			   'Spwn files': ['spwn'], // typescript stfu i dont want problems 	
+			   // eslint-disable-next-line @typescript-eslint/naming-convention
 			   'All files': ['*']
 		   }
 		};
