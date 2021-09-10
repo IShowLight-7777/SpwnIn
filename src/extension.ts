@@ -24,7 +24,7 @@ bob.move(10, -10, 2)`;
 
 		
 		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
-		const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
+		// const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
 
 		if (fs.existsSync(folderPath)) {
 			vscode.window.showOpenDialog(options).then(fileUri => {
@@ -43,9 +43,6 @@ bob.move(10, -10, 2)`;
 											`edited "${fileUri[0].fsPath}"`
 										);
 									});
-							
-						
-						
 					} catch(err) {
 						console.error(err);
 					}
@@ -53,7 +50,7 @@ bob.move(10, -10, 2)`;
 			});
 		
 		} else {
-			return vscode.window.showErrorMessage(`Failed to edit "${file}" file. are you in a workspace?`);
+			return vscode.window.showErrorMessage(`Failed to edit. are you in a workspace?`); // this'll never happen but i'll keep it 
 		}
 	});
 	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
