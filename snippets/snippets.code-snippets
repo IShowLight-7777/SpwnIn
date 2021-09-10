@@ -26,7 +26,9 @@
       "prefix": ".add alpha",
       "body": [
         "Group = 1g",
-        "Group.add( alpha_trigger(1g,0.5,duration = 2).with(X,600) )",
+        "d = 2",
+        "Opacity = 0.5",
+        "$.add( alpha_trigger(Group,Opacity,duration = d).with(X,600) )",
         ""
       ],
       "description": "for group function"
