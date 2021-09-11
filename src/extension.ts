@@ -1,40 +1,13 @@
+
 import * as path from 'path';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-import { workspace, ExtensionContext } from 'vscode';
 
-import {
-	LanguageClient,
-	LanguageClientOptions,
-	ServerOptions,
-	TransportKind
-} from 'vscode-languageclient/node';
 
-let client: LanguageClient;
+export function activate(context: vscode.ExtensionContext) {
 
-export function activate(context: ExtensionContext) {
-	const serverModule = context.asAbsolutePath(
-		path.join('server', 'out', 'server.js')
-	);
-	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
-	const serverOptions: ServerOptions = {
-		run: { module: serverModule, transport: TransportKind.ipc },
-		debug: {
-			module: serverModule,
-			transport: TransportKind.ipc,
-			options: debugOptions
-		}
-	};
-
-	const clientOptions: LanguageClientOptions = {
-		documentSelector: [{ scheme: 'file', language: 'spwn' }],
-		synchronize: {
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-		}
-	};
-
-	const samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
-		const bobcode = `//the group you want to move
+	let samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
+		let bobcode = `//the group you want to move
 bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
@@ -42,11 +15,11 @@ bob.move(10, -10, 2)`;
 			canSelectMany: false,
 			openLabel: 'Open',
 			filters: {
-				// eslint-disable-next-line @typescript-eslint/naming-convention
-				'Spwn files': ['spwn'], // typescript stfu i dont want problems 	
-				// eslint-disable-next-line @typescript-eslint/naming-convention
-				'All files': ['*']
-			}
+			   // eslint-disable-next-line @typescript-eslint/naming-convention
+			   'Spwn files': ['spwn'], // typescript stfu i dont want problems 	
+			   // eslint-disable-next-line @typescript-eslint/naming-convention
+			   'All files': ['*']
+		   }
 		};
 
 		
@@ -56,7 +29,7 @@ bob.move(10, -10, 2)`;
 		if (fs.existsSync(folderPath)) {
 			vscode.window.showOpenDialog(options).then(fileUri => {
 				if (fileUri && fileUri[0]) {
-					const filepath = fileUri[0].fsPath;
+					let filepath = fileUri[0].fsPath;
 
 					try {
 								console.log('Selected file: ' + fileUri[0].fsPath);
@@ -80,8 +53,8 @@ bob.move(10, -10, 2)`;
 			return vscode.window.showErrorMessage(`Failed to edit. are you in a workspace?`); // this'll never happen but i'll keep it 
 		}
 	});
-	const sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
-		const ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
+	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
+		let ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
 
 on(touch(), !{
 GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1 block on the x axis
@@ -92,10 +65,10 @@ GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1
 		const file = 'testontouch.spwn';
 
 		if (fs.existsSync(folderPath)) {
-			const filepath = path.join(folderPath, file);
+			let filepath = path.join(folderPath, file);
 
 			try {
-				const exists = fs.existsSync(filepath);
+				let exists = fs.existsSync(filepath);
 				fs.writeFile(filepath, ontouch, err => {
 					if(err){
 						console.error(err);
@@ -113,8 +86,8 @@ GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1
 			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace or a folder?`);
 		}
 	});
-	const doughnut = vscode.commands.registerCommand('spwnin.doughnut', () => {
-		const donut = `             extract $; let
+	let doughnut = vscode.commands.registerCommand('spwnin.doughnut', () => {
+		let donut = `             extract $; let
 		v=[];extract obj_props
 	 p=3.14;h=100;d=sin;u=cos;for
    i in..30..628{for j in..40..628{
@@ -136,7 +109,7 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 		using spwn 0.0.6-- ###
 			-donut.spwn-*/`;
 
-			const compilefileraw = `extract obj_props
+			let compilefileraw = `extract obj_props
 			extract $
 			
 			// variables to modify rotation:
@@ -240,12 +213,12 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 		const compilefile = '3d_compile.spwn';
 
 		if (fs.existsSync(folderPath)) {
-			const filepath = path.join(folderPath, file); // ts doenst like thinsg that never will be chnaged to be let
-			const compilefilepath = path.join(folderPath, compilefile);
+			let filepath = path.join(folderPath, file);
+			let compilefilepath = path.join(folderPath, compilefile);
 
 			try {
-				const exists = fs.existsSync(filepath);
-				const compilefileexists = fs.existsSync(compilefilepath);
+				let exists = fs.existsSync(filepath);
+				let compilefileexists = fs.existsSync(compilefilepath);
 				fs.writeFile(filepath, donut, err => {
 					if(err){
 						console.error(err);
@@ -277,21 +250,11 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(samplebobcode);
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
-
-	client = new LanguageClient(
-		'languageServerExample',
-		'Language Server Example',
-		serverOptions,
-		clientOptions
-	);
-
-	// Start the client. This will also launch the server
-	client.start();
 }
 
-export function deactivate(): Thenable<void> | undefined {
-	if (!client) {
-		return undefined;
-	}
-	return client.stop();
+export function deactivate() {
+	vscode.window.showInformationMessage("Oh hi there. did we do something wrong?");
 }
+
+// todo for tomarrow
+// error reporting when missed something
