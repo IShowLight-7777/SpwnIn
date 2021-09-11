@@ -20,7 +20,11 @@ import {
 import {
 	TextDocument
 <<<<<<< HEAD
+<<<<<<< HEAD
 } from 'vscode-languageserver-spwn';
+=======
+} from 'vscode-languageserver-textdocument';
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 } from 'vscode-languageserver-textdocument';
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")

@@ -10,6 +10,10 @@ import {
 	TransportKind
 } from 'vscode-languageclient/node';
 <<<<<<< HEAD:client/code/src/extension.ts
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 let defaultClient: LanguageClient;
 const clients: Map<string, LanguageClient> = new Map();
 
@@ -153,6 +157,35 @@ export function activate(context: ExtensionContext) {
 	};
 
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+<<<<<<< HEAD
+=======
+=======
+
+let client: LanguageClient;
+
+export function activate(context: ExtensionContext) {
+	const serverModule = context.asAbsolutePath(
+		path.join('server', 'out', 'server.js')
+	);
+	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
+	const serverOptions: ServerOptions = {
+		run: { module: serverModule, transport: TransportKind.ipc },
+		debug: {
+			module: serverModule,
+			transport: TransportKind.ipc,
+			options: debugOptions
+		}
+	};
+
+	const clientOptions: LanguageClientOptions = {
+		documentSelector: [{ scheme: 'file', language: 'spwn' }],
+		synchronize: {
+			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+		}
+	};
+
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	const samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
 		const bobcode = `//the group you want to move
 bob = 5g //your group
@@ -397,6 +430,10 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(samplebobcode);
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 
 <<<<<<< HEAD:client/code/src/extension.ts
 	
@@ -411,8 +448,10 @@ export function deactivate(): Thenable<void> | undefined {
 		promises.push(client.stop());
 	}
 	return Promise.all(promises).then(() => undefined);
-}
+<<<<<<< HEAD
 =======
+=======
+
 	client = new LanguageClient(
 		'languageServerExample',
 		'Language Server Example',
@@ -422,12 +461,40 @@ export function deactivate(): Thenable<void> | undefined {
 
 	// Start the client. This will also launch the server
 	client.start();
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+}
+=======
+	client = new LanguageClient(
+		'languageServerExample',
+		'Language Server Example',
+		serverOptions,
+		clientOptions
+	);
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+	// Start the client. This will also launch the server
+	client.start();
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 export function deactivate(): Thenable<void> | undefined {
 	if (!client) {
 		return undefined;
 	}
 	return client.stop();
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+=======
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
