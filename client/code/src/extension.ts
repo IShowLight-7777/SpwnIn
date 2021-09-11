@@ -9,7 +9,6 @@ import {
 	ServerOptions,
 	TransportKind
 } from 'vscode-languageclient/node';
-<<<<<<< HEAD:client/code/src/extension.ts
 let defaultClient: LanguageClient;
 const clients: Map<string, LanguageClient> = new Map();
 
@@ -127,32 +126,6 @@ export function activate(context: ExtensionContext) {
 	);
 	
 
-=======
-
-let client: LanguageClient;
-
-export function activate(context: ExtensionContext) {
-	const serverModule = context.asAbsolutePath(
-		path.join('server', 'out', 'server.js')
-	);
-	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
-	const serverOptions: ServerOptions = {
-		run: { module: serverModule, transport: TransportKind.ipc },
-		debug: {
-			module: serverModule,
-			transport: TransportKind.ipc,
-			options: debugOptions
-		}
-	};
-
-	const clientOptions: LanguageClientOptions = {
-		documentSelector: [{ scheme: 'file', language: 'spwn' }],
-		synchronize: {
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-		}
-	};
-
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
 	const samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
 		const bobcode = `//the group you want to move
 bob = 5g //your group
@@ -398,7 +371,6 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
 
-<<<<<<< HEAD:client/code/src/extension.ts
 	
 }
 
@@ -412,22 +384,3 @@ export function deactivate(): Thenable<void> | undefined {
 	}
 	return Promise.all(promises).then(() => undefined);
 }
-=======
-	client = new LanguageClient(
-		'languageServerExample',
-		'Language Server Example',
-		serverOptions,
-		clientOptions
-	);
-
-	// Start the client. This will also launch the server
-	client.start();
-}
-
-export function deactivate(): Thenable<void> | undefined {
-	if (!client) {
-		return undefined;
-	}
-	return client.stop();
-}
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts

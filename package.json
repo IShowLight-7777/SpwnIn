@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 	"name": "spwnin",
 	"description": "hmmm yes lsp for spwn",
 	"author": "Avaneesh-coder",
@@ -10,18 +9,6 @@
 		"url": "https://github.com/Avaneesh-coder/SpwnIn"
 	},
 	"publisher": "",
-=======
-	"name": "lsp-sample",
-	"description": "A language server example",
-	"author": "Microsoft Corporation",
-	"license": "MIT",
-	"version": "1.0.0",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
-	},
-	"publisher": "vscode-samples",
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	"categories": [],
 	"keywords": [
 		"multi-root ready"
@@ -30,11 +17,7 @@
 		"vscode": "^1.43.0"
 	},
 	"activationEvents": [
-<<<<<<< HEAD
 		"onLanguage:Spwn"
-=======
-		"onLanguage:spwn"
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	],
 	"main": "./client/out/extension",
 	"contributes": {
@@ -78,11 +61,8 @@
 		"eslint": "^7.26.0",
 		"mocha": "^8.3.2",
 		"typescript": "^4.3.5"
-<<<<<<< HEAD
 	},
 	"dependencies": {
 		"vscode": "^1.1.37"
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	}
 }

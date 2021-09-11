@@ -19,11 +19,7 @@ import {
 
 import {
 	TextDocument
-<<<<<<< HEAD
 } from 'vscode-languageserver-spwn';
-=======
-} from 'vscode-languageserver-textdocument';
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.

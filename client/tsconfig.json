@@ -4,7 +4,6 @@
 		"target": "es2019",
 		"lib": ["ES2019"],
 		"outDir": "out",
-<<<<<<< HEAD
 		"rootDir": "code/src",
 		"sourceMap": true
 	},
@@ -19,11 +18,3 @@
 		{ "path": "code" }
 	]
 }
-=======
-		"rootDir": "src",
-		"sourceMap": true
-	},
-	"include": ["src"],
-	"exclude": ["node_modules", ".vscode-test"]
-}
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
