@@ -23,12 +23,12 @@
       "description": "for group function"
     },
     "alpha_trigger example": {
-      "prefix": ".add alpha",
+      "prefix": "$.add alpha",
       "body": [
         "group = 1g",
         "d = 2",
         "opacity = 0.5",
-        "$.add( alpha_trigger(Group,Opacity,duration = d).with(X,600) )",
+        "$.add( alpha_trigger(group,opacity,duration = d).with(X,600) )",
         ""
       ],
       "description": "for group function"
