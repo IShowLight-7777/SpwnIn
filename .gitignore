@@ -1,7 +1,4 @@
 out
-dist
 node_modules
-.vscode-test/
-*.vsix
-ingore
-JUSTNO
+client/server
+.vscode-test
