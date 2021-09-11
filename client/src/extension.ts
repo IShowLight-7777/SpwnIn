@@ -9,6 +9,129 @@ import {
 	ServerOptions,
 	TransportKind
 } from 'vscode-languageclient/node';
+<<<<<<< HEAD:client/code/src/extension.ts
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+let defaultClient: LanguageClient;
+const clients: Map<string, LanguageClient> = new Map();
+
+let _sortedWorkspaceFolders: string[] | undefined;
+function sortedWorkspaceFolders(): string[] {
+	if (_sortedWorkspaceFolders === void 0) {
+		_sortedWorkspaceFolders = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.map(folder => {
+			let result = folder.uri.toString();
+			if (result.charAt(result.length - 1) !== '/') {
+				result = result + '/';
+			}
+			return result;
+		}).sort(
+			(a, b) => {
+				return a.length - b.length;
+			}
+		) : [];
+	}
+	return _sortedWorkspaceFolders;
+}
+workspace.onDidChangeWorkspaceFolders(() => _sortedWorkspaceFolders = undefined);
+
+function getOuterMostWorkspaceFolder(folder: vscode.WorkspaceFolder): vscode.WorkspaceFolder {
+	const sorted = sortedWorkspaceFolders();
+	for (const element of sorted) {
+		let uri = folder.uri.toString();
+		if (uri.charAt(uri.length - 1) !== '/') {
+			uri = uri + '/';
+		}
+		if (uri.startsWith(element)) {
+			return vscode.workspace.getWorkspaceFolder(vscode.Uri.parse(element))!;
+		}
+	}
+	return folder;
+}
+let client: LanguageClient;
+
+export function activate(context: ExtensionContext) {
+
+	const outputChannel: vscode.OutputChannel = vscode.window.createOutputChannel('lsp-multi-server-example');
+			outputChannel.appendLine("sussymogs");
+
+	function didOpenTextDocument(document: vscode.TextDocument): void {
+		if (document.languageId !=="spwn" || (document.uri.scheme !== 'file' && document.uri.scheme !== 'untitled')) {
+			return;
+		}
+		const uri = document.uri;
+		if (uri.scheme === 'untitled' && !defaultClient) {
+			const debugOptions = { execArgv: ['--nolazy', '--inspect=6010'] };
+			const serverOptions: ServerOptions = {
+				run: { module: serverModule, transport: TransportKind.ipc },
+				debug: {
+					module: serverModule,
+					transport: TransportKind.ipc,
+					options: debugOptions
+				}
+			};
+
+			const clientOptions: LanguageClientOptions = {
+				documentSelector: [{ scheme: 'file', language: 'spwn' }],
+				synchronize: {
+					fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+				}
+			};
+
+			client = new LanguageClient('languageServerExample','Language Server Example',serverOptions,clientOptions);
+			client.start();
+			return;
+		}
+		let folder = vscode.workspace.getWorkspaceFolder(uri);
+		if (!folder) {
+			return;
+		}
+		folder = getOuterMostWorkspaceFolder(folder);
+
+		if (!clients.has(folder.uri.toString())) {
+			const debugOptions = { execArgv: ["--nolazy", `--inspect=${6011 + clients.size}`] };
+			const serverOptions: ServerOptions = {
+				run: { module: serverModule, transport: TransportKind.ipc },
+				debug: {
+					module: serverModule,
+					transport: TransportKind.ipc,
+					options: debugOptions
+				}
+			};
+
+			const clientOptions: LanguageClientOptions = {
+				documentSelector: [{ scheme: 'file', language: 'spwn' }],
+				synchronize: {
+					fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+				}
+			};
+
+			const client = new LanguageClient('lsp-multi-server-example', 'LSP Multi Server Example', serverOptions, clientOptions);
+			client.start();
+			clients.set(folder.uri.toString(), client);
+		}
+	}
+
+	vscode.workspace.onDidOpenTextDocument(didOpenTextDocument);
+	vscode.workspace.textDocuments.forEach(didOpenTextDocument);
+	vscode.workspace.onDidChangeWorkspaceFolders((event) => {
+		for (const folder  of event.removed) {
+			const client = clients.get(folder.uri.toString());
+			if (client) {
+				clients.delete(folder.uri.toString());
+				client.stop();
+			}
+		}
+	});
+	
+
+	const serverModule = context.asAbsolutePath(
+		path.join('server', 'out', 'server.js')
+	);
+	
+
+=======
 
 let client: LanguageClient;
 
@@ -33,6 +156,36 @@ export function activate(context: ExtensionContext) {
 		}
 	};
 
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+<<<<<<< HEAD
+=======
+=======
+
+let client: LanguageClient;
+
+export function activate(context: ExtensionContext) {
+	const serverModule = context.asAbsolutePath(
+		path.join('server', 'out', 'server.js')
+	);
+	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
+	const serverOptions: ServerOptions = {
+		run: { module: serverModule, transport: TransportKind.ipc },
+		debug: {
+			module: serverModule,
+			transport: TransportKind.ipc,
+			options: debugOptions
+		}
+	};
+
+	const clientOptions: LanguageClientOptions = {
+		documentSelector: [{ scheme: 'file', language: 'spwn' }],
+		synchronize: {
+			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+		}
+	};
+
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	const samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
 		const bobcode = `//the group you want to move
 bob = 5g //your group
@@ -277,6 +430,27 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(samplebobcode);
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+
+<<<<<<< HEAD:client/code/src/extension.ts
+	
+}
+
+export function deactivate(): Thenable<void> | undefined {
+	const promises: Thenable<void>[] = [];
+	if (defaultClient) {
+		promises.push(defaultClient.stop());
+	}
+	for (const client of clients.values()) {
+		promises.push(client.stop());
+	}
+	return Promise.all(promises).then(() => undefined);
+<<<<<<< HEAD
+=======
+=======
 
 	client = new LanguageClient(
 		'languageServerExample',
@@ -287,11 +461,40 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 
 	// Start the client. This will also launch the server
 	client.start();
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+}
+=======
+	client = new LanguageClient(
+		'languageServerExample',
+		'Language Server Example',
+		serverOptions,
+		clientOptions
+	);
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+	// Start the client. This will also launch the server
+	client.start();
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 export function deactivate(): Thenable<void> | undefined {
 	if (!client) {
 		return undefined;
 	}
 	return client.stop();
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:client/code/src/extension.ts
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
+=======
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
+>>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts

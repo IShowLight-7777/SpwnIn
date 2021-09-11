@@ -1,7 +1,6 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 	"name": "spwnin",
 	"displayName": "spwnIn",
 	"description": "LSP for spwn gd",
@@ -130,8 +129,6 @@
 =======
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	"name": "lsp-sample-client",
 	"description": "VSCode part of a language server",
 	"author": "Microsoft Corporation",
@@ -154,9 +151,6 @@
 	}
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")

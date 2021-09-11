@@ -1,7 +1,6 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 	"name": "spwnin",
 	"description": "hmmm yes lsp for spwn",
 	"author": "Avaneesh-coder",
@@ -15,8 +14,6 @@
 =======
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	"name": "lsp-sample",
 	"description": "A language server example",
 	"author": "Microsoft Corporation",
@@ -28,9 +25,6 @@
 	},
 	"publisher": "vscode-samples",
 <<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
@@ -44,11 +38,7 @@
 	"activationEvents": [
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 		"onLanguage:Spwn"
-=======
-		"onLanguage:spwn"
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 		"onLanguage:spwn"
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
@@ -100,12 +90,9 @@
 		"typescript": "^4.3.5"
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 	},
 	"dependencies": {
 		"vscode": "^1.1.37"
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======

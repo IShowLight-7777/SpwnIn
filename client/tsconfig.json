@@ -6,7 +6,6 @@
 		"outDir": "out",
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 		"rootDir": "code/src",
 		"sourceMap": true
 	},
@@ -24,8 +23,6 @@
 =======
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 		"rootDir": "src",
 		"sourceMap": true
 	},
@@ -33,9 +30,6 @@
 	"exclude": ["node_modules", ".vscode-test"]
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
