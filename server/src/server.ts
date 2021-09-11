@@ -19,7 +19,7 @@ import {
 
 import {
 	TextDocument
-} from 'vscode-languageserver-spwn';
+} from 'vscode-languageserver-textdocument';
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
