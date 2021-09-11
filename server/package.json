@@ -1,20 +1,14 @@
 {
 <<<<<<< HEAD
-<<<<<<< HEAD
 	"name": "spwnin",
 	"description": "Hmmm yes lsp for spwn",
 	"version": "1.1.0",
 	"author": "Avaneesh-coder",
 =======
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	"name": "lsp-sample-server",
 	"description": "Example implementation of a language server in node.",
 	"version": "1.0.0",
 	"author": "Microsoft Corporation",
-<<<<<<< HEAD
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 	"license": "MIT",
 	"engines": {
@@ -23,11 +17,7 @@
 	"repository": {
 		"type": "git",
 <<<<<<< HEAD
-<<<<<<< HEAD
 		"url": "https://github.com/Avaneesh-coder/SpwnIn"
-=======
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 =======
 		"url": "https://github.com/Microsoft/vscode-extension-samples"
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")

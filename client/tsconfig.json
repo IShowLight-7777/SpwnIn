@@ -5,7 +5,6 @@
 		"lib": ["ES2019"],
 		"outDir": "out",
 <<<<<<< HEAD
-<<<<<<< HEAD
 		"rootDir": "code/src",
 		"sourceMap": true
 	},
@@ -21,15 +20,10 @@
 	]
 }
 =======
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
 		"rootDir": "src",
 		"sourceMap": true
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", ".vscode-test"]
 }
-<<<<<<< HEAD
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO")

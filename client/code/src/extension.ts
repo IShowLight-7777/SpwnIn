@@ -10,7 +10,6 @@ import {
 	TransportKind
 } from 'vscode-languageclient/node';
 <<<<<<< HEAD:client/code/src/extension.ts
-<<<<<<< HEAD:client/code/src/extension.ts
 let defaultClient: LanguageClient;
 const clients: Map<string, LanguageClient> = new Map();
 
@@ -128,32 +127,6 @@ export function activate(context: ExtensionContext) {
 	);
 	
 
-=======
-
-let client: LanguageClient;
-
-export function activate(context: ExtensionContext) {
-	const serverModule = context.asAbsolutePath(
-		path.join('server', 'out', 'server.js')
-	);
-	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
-	const serverOptions: ServerOptions = {
-		run: { module: serverModule, transport: TransportKind.ipc },
-		debug: {
-			module: serverModule,
-			transport: TransportKind.ipc,
-			options: debugOptions
-		}
-	};
-
-	const clientOptions: LanguageClientOptions = {
-		documentSelector: [{ scheme: 'file', language: 'spwn' }],
-		synchronize: {
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-		}
-	};
-
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
 =======
 
 let client: LanguageClient;
@@ -424,7 +397,6 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(samplebobcode);
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
-<<<<<<< HEAD:client/code/src/extension.ts
 
 <<<<<<< HEAD:client/code/src/extension.ts
 	
@@ -439,18 +411,6 @@ export function deactivate(): Thenable<void> | undefined {
 		promises.push(client.stop());
 	}
 	return Promise.all(promises).then(() => undefined);
-=======
-
-	client = new LanguageClient(
-		'languageServerExample',
-		'Language Server Example',
-		serverOptions,
-		clientOptions
-	);
-
-	// Start the client. This will also launch the server
-	client.start();
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
 }
 =======
 	client = new LanguageClient(
@@ -460,20 +420,14 @@ export function deactivate(): Thenable<void> | undefined {
 		clientOptions
 	);
 
-<<<<<<< HEAD:client/code/src/extension.ts
 	// Start the client. This will also launch the server
 	client.start();
 }
 
-=======
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
 export function deactivate(): Thenable<void> | undefined {
 	if (!client) {
 		return undefined;
 	}
 	return client.stop();
 }
-<<<<<<< HEAD:client/code/src/extension.ts
->>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
-=======
 >>>>>>> parent of c43c753 (Revert "LAMFO ITS A LSP NOW LMFAO"):client/src/extension.ts
