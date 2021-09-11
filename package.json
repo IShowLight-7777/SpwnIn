@@ -1,14 +1,14 @@
 {
-	"name": "lsp-sample",
-	"description": "A language server example",
-	"author": "Microsoft Corporation",
+	"name": "spwnin",
+	"description": "hmmm yes lsp for spwn",
+	"author": "Avaneesh-coder",
 	"license": "MIT",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/Avaneesh-coder/SpwnIn"
 	},
-	"publisher": "vscode-samples",
+	"publisher": "",
 	"categories": [],
 	"keywords": [
 		"multi-root ready"
@@ -17,7 +17,7 @@
 		"vscode": "^1.43.0"
 	},
 	"activationEvents": [
-		"onLanguage:spwn"
+		"onLanguage:Spwn"
 	],
 	"main": "./client/out/extension",
 	"contributes": {
@@ -61,5 +61,8 @@
 		"eslint": "^7.26.0",
 		"mocha": "^8.3.2",
 		"typescript": "^4.3.5"
+	},
+	"dependencies": {
+		"vscode": "^1.1.37"
 	}
 }
