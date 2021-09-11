@@ -255,3 +255,6 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 export function deactivate() {
 	vscode.window.showInformationMessage("Oh hi there. did we do something wrong?");
 }
+
+// todo for tomarrow
+// error reporting when missed something
