@@ -12,10 +12,12 @@ ah yes LSP for spwn made with typescript hmm yas
 [Avaneesh-coder](https://github.com/Avaneesh-coder) the mad lad who made a second LSP for spwn  
 [MiloLug](https://github.com/MiloLug) refactoring  
 
-## repos
+### repos
 [spwn](https://github.com/Spu7Nix/SPWN-language/)  
 [check out the offical lsp! :D](https://github.com/Suyashtnt/spwn-lsp) (NOTE: IT IS DISONTIUNED SO ITS BETTER TO USE THIS ONE)
 ### LICENCE 
 [read it if you like](LICENSE)
 ### About copying
 you are not allowed to copy without my permission so the licence will be changing but that wont change that you have to get premission from me
+## left todo
+waiting for people to turn this into a lsp because if i do it it breaks ;-;
