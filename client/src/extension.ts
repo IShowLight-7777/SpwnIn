@@ -1,17 +1,52 @@
-
 import * as path from 'path';
-import * as vscode from 'vscode';
+import * as vsc from 'vscode';
 import * as fs from 'fs';
 
+import {
+	LanguageClient,
+	LanguageClientOptions,
+	ServerOptions,
+	TransportKind
+} from 'vscode-languageclient/node';
 
-export function activate(context: vscode.ExtensionContext) {
+let client: LanguageClient;
 
-	let samplebobcode = vscode.commands.registerCommand('spwnin.bobcode', () => {
+export function activate(context: vsc.ExtensionContext) {
+	// The server is implemented in node
+	const serverModule = context.asAbsolutePath(
+		path.join('server', 'out', 'server.js')
+	);
+	// The debug options for the server
+	// --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
+	const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
+
+	// If the extension is launched in debug mode then the debug server options are used
+	// Otherwise the run options are used
+	const serverOptions: ServerOptions = {
+		run: { module: serverModule, transport: TransportKind.ipc },
+		debug: {
+			module: serverModule,
+			transport: TransportKind.ipc,
+			options: debugOptions
+		}
+	};
+
+	// Options to control the language client
+	const clientOptions: LanguageClientOptions = {
+		// Register the server for plain text documents
+		documentSelector: [{ scheme: 'file', language: 'plaintext' }],
+		synchronize: {
+			// Notify the server about file changes to '.clientrc files contained in the workspace
+			fileEvents: vsc.workspace.createFileSystemWatcher('**/.clientrc')
+		}
+	};
+
+	let samplebobcode = vsc.commands.registerCommand('spwnin.bobcode', () => {
 		let bobcode = `//the group you want to move
 bob = 5g //your group
 //where to move and what easing type
 bob.move(10, -10, 2)`;
-		const options: vscode.OpenDialogOptions = {
+		const options: vsc.OpenDialogOptions = {
 			canSelectMany: false,
 			openLabel: 'Open',
 			filters: {
@@ -23,37 +58,34 @@ bob.move(10, -10, 2)`;
 		};
 
 		
-		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
+		const folderPath = vsc!.workspace!.workspaceFolders![0].uri.fsPath; 
 		// const file = 'bob.spwn'; // i do not know why i need this but imma add it for refactoring in the future 
 
 		if (fs.existsSync(folderPath)) {
-			vscode.window.showOpenDialog(options).then(fileUri => {
+			vsc.window.showOpenDialog(options).then(fileUri => {
 				if (fileUri && fileUri[0]) {
 					let filepath = fileUri[0].fsPath;
 
 					try {
-								console.log('Selected file: ' + fileUri[0].fsPath);
 									fs.writeFile(filepath, bobcode, err => {
 										if(err){
-											console.error(err);
-											vscode.window.showErrorMessage(`Failed to edit "${fileUri[0].fsPath}"`);
-											return vscode.window.showErrorMessage(`${err}`);
+											vsc.window.showErrorMessage(`Failed to edit "${fileUri[0].fsPath}"`);
+											return vsc.window.showErrorMessage(`${err}`);
 										}
-										return vscode.window.showWarningMessage(
+										return vsc.window.showWarningMessage(
 											`edited "${fileUri[0].fsPath}"`
 										);
 									});
 					} catch(err) {
-						console.error(err);
 					}
 				}
 			});
 		
 		} else {
-			return vscode.window.showErrorMessage(`Failed to edit. are you in a workspace?`); // this'll never happen but i'll keep it 
+			return vsc.window.showErrorMessage(`Failed to edit. are you in a workspace?`); // this'll never happen but i'll keep it 
 		}
 	});
-	let sampleontouch = vscode.commands.registerCommand('spwnin.ontouch', () => {
+	let sampleontouch = vsc.commands.registerCommand('spwnin.ontouch', () => {
 		let ontouch = `GROUP_ID = 1 // the group id rename "GROUP_ID" to whatever you want
 
 on(touch(), !{
@@ -61,7 +93,7 @@ GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1
 //more code when player clicked/jumped
 })`;
 
-		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
+		const folderPath = vsc!.workspace!.workspaceFolders![0].uri.fsPath; 
 		const file = 'testontouch.spwn';
 
 		if (fs.existsSync(folderPath)) {
@@ -71,22 +103,20 @@ GROUP_ID.move(10, 10, 0.5) // moves the group 1 block up on the y axis and and 1
 				let exists = fs.existsSync(filepath);
 				fs.writeFile(filepath, ontouch, err => {
 					if(err){
-						console.error(err);
-						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
+						return vsc.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
 					}
-					return vscode.window.showWarningMessage(
+					return vsc.window.showWarningMessage(
 						exists ? `FILE ALREADY EXISTS | edited "${file}" file.` : `created "${file}" file.`
 					);
 				});
 			} catch(err) {
-				console.error(err);
 			}
 					
 		} else {
-			return vscode.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace or a folder?`);
+			return vsc.window.showErrorMessage(`Failed to create "${file}" file. are you in a workspace or a folder?`);
 		}
 	});
-	let doughnut = vscode.commands.registerCommand('spwnin.doughnut', () => {
+	let doughnut = vsc.commands.registerCommand('spwnin.doughnut', () => {
 		let donut = `             extract $; let
 		v=[];extract obj_props
 	 p=3.14;h=100;d=sin;u=cos;for
@@ -208,7 +238,7 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 				rot!;
 			}
 			rot!;`;
-		const folderPath = vscode!.workspace!.workspaceFolders![0].uri.fsPath; 
+		const folderPath = vsc!.workspace!.workspaceFolders![0].uri.fsPath; 
 		const file = 'donut.spwn';
 		const compilefile = '3d_compile.spwn';
 
@@ -221,28 +251,26 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 				let compilefileexists = fs.existsSync(compilefilepath);
 				fs.writeFile(filepath, donut, err => {
 					if(err){
-						console.error(err);
-						return vscode.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
+						return vsc.window.showErrorMessage(`Failed to ${exists ? 'edit' : 'create'} "${file}" file.`);
 					}
-					return vscode.window.showWarningMessage(
+					return vsc.window.showWarningMessage(
 						exists ? `FILE ALREADY EXISTS | edited "${file}" file.` : `created "${file}" file.`
 					);
 				});
 				fs.writeFile(compilefilepath, compilefileraw, err => {
 					if(err){
-						console.error(err);
-						return vscode.window.showErrorMessage(`Failed to ${compilefileexists ? 'edit' : 'create'} "${compilefile}" file.`);
+						return vsc.window.showErrorMessage(`Failed to ${compilefileexists ? 'edit' : 'create'} "${compilefile}" file.`);
 					}
-					return vscode.window.showWarningMessage(
+					return vsc.window.showWarningMessage(
 						exists ? `FILE ALREADY EXISTS | edited "${compilefile}" file.` : `created "${compilefile}" file.`
 					);
 				});
 			} catch(err) {
-				console.error(err);
+				// do nothing -_-
 			}
 					
 		} else {
-			return vscode.window.showErrorMessage(`Failed to create 2 file. are you in a workspace or a folder?`);
+			return vsc.window.showErrorMessage(`Failed to create 2 file. are you in a workspace or a folder?`);
 		}
 	});
 	//push context
@@ -250,11 +278,22 @@ r=(a,i){c=u(a*p/      180);s=d(a*p/180
 	context.subscriptions.push(samplebobcode);
 	context.subscriptions.push(sampleontouch); // outdated version
 	context.subscriptions.push(doughnut);
+
+	// Create the language client and start the client.
+	client = new LanguageClient(
+		'languageServerExample',
+		'Language Server Example',
+		serverOptions,
+		clientOptions
+	);
+
+	// Start the client. This will also launch the server
+	client.start();
 }
 
-export function deactivate() {
-	vscode.window.showInformationMessage("Oh hi there. did we do something wrong?");
+export function deactivate(): vsc.Thenable<void> | undefined {
+	if (!client) {
+		return undefined;
+	}
+	return client.stop();
 }
-
-// todo for tomarrow
-// error reporting when missed something
