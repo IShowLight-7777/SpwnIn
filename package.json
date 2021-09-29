@@ -1,6 +1,6 @@
 {
-	"name": "lsp-sample",
-	"description": "A language server example",
+	"name": "lsp-sample-multi-server",
+	"description": "A multi server LSP example",
 	"author": "Microsoft Corporation",
 	"license": "MIT",
 	"version": "1.0.0",
@@ -14,7 +14,7 @@
 		"multi-root ready"
 	],
 	"engines": {
-		"vscode": "^1.43.0"
+		"vscode": "^1.59.0"
 	},
 	"activationEvents": [
 		"onLanguage:spwn"
@@ -23,15 +23,21 @@
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "Example configuration",
+			"title": "Multi LSP configuration",
 			"properties": {
-				"languageServerExample.maxNumberOfProblems": {
+				"lspMultiServerSample.enable": {
 					"scope": "resource",
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
+					"type": "boolean",
+					"default": true,
+					"description": "Controls the enablement."
 				},
-				"languageServerExample.trace.server": {
+				"lspMultiServerSample.options": {
+					"scope": "resource",
+					"type": "object",
+					"default": {},
+					"description": "Additional options."
+				},
+				"lspMultiServerSample.trace.server": {
 					"scope": "window",
 					"type": "string",
 					"enum": [
@@ -40,26 +46,42 @@
 						"verbose"
 					],
 					"default": "off",
-					"description": "Traces the communication between VS Code and the language server."
+					"description": "Traces the communication between VSCode and the language server."
 				}
 			}
 		}
 	},
+	"languages": [
+		{
+			"id": "spwn",
+			"extensions": [
+				".spwn"
+			],
+			"aliases": [
+				"SPWN"
+			],
+			"configuration": "language-config.json"
+		}
+	],
+	"grammars": [
+		{
+			"language": "spwn",
+			"scopeName": "source.spwn",
+			"path": "./syntaxes/spwn.tmLanguage.json"
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -b",
 		"watch": "tsc -b -w",
-		"lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
-		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-		"test": "sh ./scripts/e2e.sh"
+		"postinstall": "cd client && npm install && cd .."
 	},
 	"devDependencies": {
-		"@types/mocha": "^8.2.2",
+		"@types/mocha": "^5.2.0",
 		"@types/node": "^12.12.0",
 		"@typescript-eslint/eslint-plugin": "^4.23.0",
 		"@typescript-eslint/parser": "^4.23.0",
 		"eslint": "^7.26.0",
-		"mocha": "^8.3.2",
 		"typescript": "^4.3.5"
 	}
 }

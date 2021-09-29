@@ -16,67 +16,65 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onLanguage:spwn"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
-				"command": "spwnin.bobcode",
-				"category": "Spwn",
-				"title": "Sample BOB Code"
-			},
-			{
-				"command": "spwnin.ontouch",
-				"category": "Spwn",
-				"title": "Sample on touch function(OLD/outdated)"
-			},
-			{
-				"command": "spwnin.doughnut",
-				"category": "Spwn",
-				"title": "donut code"
-			}
-			],
-			"languages": [
-				{
-					"id": "spwn",
-					"aliases": [
-						"Spwn",
-						"spwn"
+		"configuration": {
+			"type": "object",
+			"title": "Multi LSP configuration",
+			"properties": {
+				"lspMultiServerSample.enable": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"description": "Controls the enablement."
+				},
+				"lspMultiServerSample.options": {
+					"scope": "resource",
+					"type": "object",
+					"default": {},
+					"description": "Additional options."
+				},
+				"lspMultiServerSample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
 					],
-					"extensions": [
-						".spwn"
-					],
-					"configuration": "./language-configuration.json"
+					"default": "off",
+					"description": "Traces the communication between VSCode and the language server."
 				}
-			],
-			"grammars": [
-				{
-					"language": "spwn",
-					"scopeName": "source.spwn",
-					"path": "./syntaxes/spwn.tmLanguage.json"
-				}
-			],
-			"snippets": [
-				{
-					"language": "spwn",
-					"path": "./snippets/snippets.code-snippets"
-				}
-			],
-		"iconThemes": [
-			{
-				"id": "spwn-icon",
-				"label": "icon for spwn",
-				"path": "spwn-icon.json"
 			}
-		]
+		}
 	},
-
+	"languages": [
+		{
+			"id": "spwn",
+			"aliases": [
+				"Spwn",
+				"spwn"
+			],
+			"extensions": [
+				".spwn"
+			],
+			"configuration": "./language-configuration.json"
+		}
+	],
+	"grammars": [
+		{
+			"language": "spwn",
+			"scopeName": "source.spwn",
+			"path": "./syntaxes/spwn.tmLanguage.json"
+		}
+	],
+	"scripts": {},
 	"dependencies": {
 		"vscode-languageclient": "^7.0.0"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.52.0",
-		"@vscode/test-electron": "^1.6.1"
+		"@types/vscode": "^1.52.0"
 	}
 }
