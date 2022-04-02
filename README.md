@@ -6,7 +6,7 @@ i am thinking to recome to this project but i'm aslo burnt out by typescript (TH
 
 ### thanks to...
 [Deltara](https://github.com/Deltara3) made some funny stuff  
-[IShowLight](https://github.com/IShowLight-7777) [IShowLight#7777](javascript:alert("hi"))  
+[IShowLight](https://github.com/IShowLight-7777) IShowLight#7777  
 [MiloLug](https://github.com/MiloLug) refactoring  
 
 ### repos
